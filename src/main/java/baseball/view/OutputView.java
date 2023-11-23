@@ -4,7 +4,7 @@ import static baseball.utils.StringConstant.*;
 
 public class OutputView {
 
-    public static void printStartApplication() {
+    public static void printStart() {
         System.out.println(START_MESSAGE);
     }
 
