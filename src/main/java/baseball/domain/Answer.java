@@ -16,22 +16,29 @@ public class Answer {
         numbers = Randoms.pickUniqueNumbersInRange(START_NUM, END_NUM, NUMBERS_SIZE);
     }
 
-    public List<Result> matches(int[] guessNumbers) {
-        List<Result> results = new ArrayList<>();
+    public Map<Result, Integer> matches(int[] guessNumbers) {
+        Map<Result, Integer> results = new EnumMap<>(Result.class);
 
         IntStream.range(ZERO, NUMBERS_SIZE).forEach(i -> {
-            results.add(matchOneByOne(numbers.get(i), guessNumbers[i], i));
+            Result result = matchOneByOne(numbers.get(i), guessNumbers[i]);
+            increaseResult(results, result);
         });
 
         return results;
     }
 
-    private Result matchOneByOne(int answer, int guess, int idx) {
+    private Result matchOneByOne(int answer, int guess) {
         if (answer == guess) return STRIKE;
         if (numbers.contains(guess)) return BALL;
 
         return NOTHING;
     }
+
+    private void increaseResult(Map<Result, Integer> results, Result result) {
+        results.putIfAbsent(result, INITIAL_RESULT_VALUE);
+        results.computeIfPresent(result, (key, value) -> value + RESULT_INCREMENT_NUM);
+    }
+
 
     @Override
     public boolean equals(Object o) {
