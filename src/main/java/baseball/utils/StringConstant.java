@@ -25,7 +25,7 @@ public class StringConstant {
     public static final String ERROR_PREFIX = "[ERROR] ";
 
     public static final String INVALID_GUESS_VALUE_ERROR = START_NUM + " ~ " + END_NUM + " 사이의 값을 입력해주세요.";
-    public static final String TOO_MANY_GUESS_ERROR = NUMBERS_SIZE + " 이하의 개수를 입력해주세요.";
+    public static final String GUESS_SIZE_ERROR = NUMBERS_SIZE + "개의 수를 입력해주세요.";
     public static final String DUPLICATE_GUESS_ERROR = "서로 같지 않은 수를 입력해주세요.";
 
     public static final String INVALID_REPLAY_VALUE_ERROR = REPLAY_NUM + " 혹은 " + QUIT_NUM + "을 입력해주세요.";

@@ -3,8 +3,10 @@ package baseball.utils;
 import baseball.exception.DuplicateGuessException;
 import baseball.exception.InvalidGuessValueException;
 import baseball.exception.InvalidReplayValueException;
-import baseball.exception.TooManyGuessException;
+import baseball.exception.GuessSizeException;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 import static baseball.utils.NumberConstant.*;
@@ -27,14 +29,18 @@ public class InputValidator {
     }
 
     private static void validateGuessSize(String input) {
-        if (input.length() > NUMBERS_SIZE)
-            throw new TooManyGuessException();
+        if (input.length() < NUMBERS_SIZE || input.length() > NUMBERS_SIZE)
+            throw new GuessSizeException();
     }
 
     private static void validateGuessDuplicate(String input) {
-        for (int i = ZERO; i < input.length(); i++)
-            for (int j = ZERO + 1; j < input.length() - 1; j++)
-                if (i == j) throw new DuplicateGuessException();
+        Set<Character> chars = new HashSet<>();
+
+        IntStream.range(ZERO, input.length())
+                .forEach(i -> chars.add(input.charAt(i)));
+
+        if (chars.size() != input.length())
+            throw new DuplicateGuessException();
     }
 
 
