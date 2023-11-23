@@ -2,7 +2,6 @@ package baseball.view;
 
 import baseball.utils.InputValidator;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -19,6 +18,7 @@ public class InputView {
             InputValidator.validateGuess(input);
             return parseGuess(input);
         } catch (IllegalArgumentException e) {
+
             return readGuess();
         }
     }
@@ -32,4 +32,21 @@ public class InputView {
     private static int parseInt(char c) {
         return c - CHAR_ZERO;
     }
+
+
+    public static int readReplay() {
+        String input = readLine();
+
+        try {
+            InputValidator.validateReplay(input);
+            return parseReplay(input);
+        } catch (IllegalArgumentException e) {
+
+            return readReplay();
+        }
+    }
+
+     private static int parseReplay(String input) {
+         return Integer.parseInt(input);
+     }
 }
