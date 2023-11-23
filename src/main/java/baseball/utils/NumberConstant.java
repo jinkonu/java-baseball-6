@@ -11,6 +11,11 @@ public class NumberConstant {
     public static final int START_NUM = 1;
     public static final int END_NUM = 9;
 
+    public static final int INITIAL_RESULT_VALUE = 0;
+    public static final int RESULT_INCREMENT_NUM = 1;
+
+    public static final int SUCCESS_NUM = 3;
+
 
     /* INPUT */
     public static final int REPLAY_NUM = 1;
