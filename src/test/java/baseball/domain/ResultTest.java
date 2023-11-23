@@ -51,7 +51,7 @@ class ResultTest {
         results.put(STRIKE, size);
         results.put(BALL, size);
 
-        printResults(results);
+        print(results);
         assertThat(output()).contains(
                 size + STRIKE_UNIT,
                 size + BALL_UNIT
@@ -64,7 +64,7 @@ class ResultTest {
     void printResults_매칭_결과_없을_시_낫싱_출력() {
         Map<Result, Integer> results = new EnumMap<>(Result.class);
 
-        printResults(results);
+        print(results);
         assertThat(output()).contains(
                 NOTHING
         );
@@ -78,6 +78,6 @@ class ResultTest {
 
         results.put(STRIKE, SUCCESS_NUM);
 
-        assertThat(checkResults(results)).isTrue();
+        assertThat(check(results)).isTrue();
     }
 }

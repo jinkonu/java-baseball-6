@@ -18,7 +18,7 @@ public enum Result {
         this.unit = unit;
     }
 
-    public static void printResults(Map<Result, Integer> results) {
+    public static void print(Map<Result, Integer> results) {
         if (isNothing(results))
             OutputView.printNothing();
 
@@ -31,7 +31,7 @@ public enum Result {
                 .sum() == ZERO;
     }
 
-    public static boolean checkResults(Map<Result, Integer> results) {
-        return results.get(STRIKE) == SUCCESS_NUM;
+    public static boolean check(Map<Result, Integer> results) {
+        return results.containsKey(STRIKE) && results.get(STRIKE) == SUCCESS_NUM;
     }
 }
