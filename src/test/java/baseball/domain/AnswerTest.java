@@ -4,7 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import static baseball.utils.NumberConstant.*;
@@ -16,11 +18,13 @@ class AnswerTest {
     @ValueSource(ints = {1, 2, 3})
     @ParameterizedTest
     void matchesFromParameterNumbers(int num) {
-        int[] guessNumbers = new int[NUMBERS_SIZE];
-        Arrays.fill(guessNumbers, num);
+        List<Integer> guess = new ArrayList<>();
+        guess.add(num);
+        guess.add(num + 1);
+        guess.add(num + 2);
 
-        Answer answer = new Answer();
-        Map<Result, Integer> results = answer.matches(guessNumbers);
+        Answer answer = Answer.create();
+        Map<Result, Integer> results = answer.matches(guess);
 
         assertThat(results.values().stream()
                 .mapToInt(Integer::intValue)

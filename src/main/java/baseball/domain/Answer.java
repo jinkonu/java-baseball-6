@@ -12,15 +12,19 @@ public class Answer {
 
     private final List<Integer> numbers;
 
-    public Answer() {
+    public static Answer create() {
+        return new Answer();
+    }
+
+    private Answer() {
         numbers = Randoms.pickUniqueNumbersInRange(START_NUM, END_NUM, NUMBERS_SIZE);
     }
 
-    public Map<Result, Integer> matches(int[] guessNumbers) {
+    public Map<Result, Integer> matches(List<Integer> guess) {
         Map<Result, Integer> results = new EnumMap<>(Result.class);
 
         IntStream.range(ZERO, NUMBERS_SIZE).forEach(i -> {
-            Result result = matchOneByOne(numbers.get(i), guessNumbers[i]);
+            Result result = matchOneByOne(numbers.get(i), guess.get(i));
 
             if (result != null)
                 increaseResult(results, result);
