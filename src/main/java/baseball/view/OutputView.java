@@ -13,11 +13,15 @@ public class OutputView {
     }
 
     public static void printResult(String unit, int size) {
-        System.out.println(size + unit);
+        System.out.print(size + unit);
     }
 
     public static void printNothing() {
-        System.out.println(NOTHING);
+        System.out.print(NOTHING);
+    }
+
+    public static void printOneLine() {
+        System.out.println();
     }
 
     public static void printSuccess() {

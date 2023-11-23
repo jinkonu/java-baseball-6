@@ -9,8 +9,8 @@ import static baseball.utils.NumberConstant.*;
 
 public enum Result {
 
-    STRIKE(STRIKE_UNIT),
-    BALL(BALL_UNIT);
+    BALL(BALL_UNIT),
+    STRIKE(STRIKE_UNIT);
 
     private final String unit;
 
@@ -23,6 +23,7 @@ public enum Result {
             OutputView.printNothing();
 
         results.forEach((key, value) -> OutputView.printResult(key.unit, value));
+        OutputView.printOneLine();
     }
 
     private static boolean isNothing(Map<Result, Integer> results) {

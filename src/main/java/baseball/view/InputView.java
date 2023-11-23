@@ -13,6 +13,7 @@ import static baseball.utils.StringConstant.*;
 public class InputView {
 
     public static List<Integer> readGuess() {
+        printGuessInputForm();
         String input = readLine();
 
         try {

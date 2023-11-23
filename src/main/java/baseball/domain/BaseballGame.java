@@ -38,7 +38,6 @@ public class BaseballGame {
 
 
     private boolean guess() {
-        printGuessInputForm();
         Map<Result, Integer> results = answer.matches(readGuess());
 
         Result.print(results);
