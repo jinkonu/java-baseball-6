@@ -5,6 +5,7 @@ import baseball.utils.InputValidator;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static baseball.view.OutputView.*;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static baseball.utils.NumberConstant.*;
 import static baseball.utils.StringConstant.*;
@@ -18,7 +19,7 @@ public class InputView {
             InputValidator.validateGuess(input);
             return parseGuess(input);
         } catch (IllegalArgumentException e) {
-
+            printError(e);
             return readGuess();
         }
     }
@@ -41,7 +42,7 @@ public class InputView {
             InputValidator.validateReplay(input);
             return parseReplay(input);
         } catch (IllegalArgumentException e) {
-
+            printError(e);
             return readReplay();
         }
     }
