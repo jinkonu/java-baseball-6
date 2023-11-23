@@ -10,8 +10,7 @@ import static baseball.utils.NumberConstant.*;
 public enum Result {
 
     STRIKE(STRIKE_UNIT),
-    BALL(BALL_UNIT),
-    NOTHING(NOTHING_UNIT);
+    BALL(BALL_UNIT);
 
     private final String unit;
 
@@ -20,7 +19,16 @@ public enum Result {
     }
 
     public static void printResults(Map<Result, Integer> results) {
+        if (isNothing(results))
+            OutputView.printNothing();
+
         results.forEach((key, value) -> OutputView.printResult(key.unit, value));
+    }
+
+    private static boolean isNothing(Map<Result, Integer> results) {
+        return results.values().stream()
+                .mapToInt(Integer::intValue)
+                .sum() == ZERO;
     }
 
     public static boolean checkResults(Map<Result, Integer> results) {

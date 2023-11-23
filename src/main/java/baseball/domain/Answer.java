@@ -21,7 +21,9 @@ public class Answer {
 
         IntStream.range(ZERO, NUMBERS_SIZE).forEach(i -> {
             Result result = matchOneByOne(numbers.get(i), guessNumbers[i]);
-            increaseResult(results, result);
+
+            if (result != null)
+                increaseResult(results, result);
         });
 
         return results;
@@ -31,7 +33,7 @@ public class Answer {
         if (answer == guess) return STRIKE;
         if (numbers.contains(guess)) return BALL;
 
-        return NOTHING;
+        return null;
     }
 
     private void increaseResult(Map<Result, Integer> results, Result result) {
