@@ -7,7 +7,7 @@ import java.util.Map;
 import static baseball.utils.StringConstant.*;
 import static baseball.utils.NumberConstant.*;
 
-public enum Result {
+enum Result {
 
     BALL(BALL_UNIT),
     STRIKE(STRIKE_UNIT);

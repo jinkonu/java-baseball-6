@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 import static baseball.domain.Result.*;
 import static baseball.utils.NumberConstant.*;
 
-public class Answer {
+class Answer {
 
     private final List<Integer> numbers;
 
