@@ -27,7 +27,7 @@ public class Answer {
             Result result = matchOneByOne(numbers.get(i), guess.get(i));
 
             if (result != null)
-                increaseResult(results, result);
+                addResult(results, result);
         });
 
         return results;
@@ -40,7 +40,7 @@ public class Answer {
         return null;
     }
 
-    private void increaseResult(Map<Result, Integer> results, Result result) {
+    private void addResult(Map<Result, Integer> results, Result result) {
         results.putIfAbsent(result, INITIAL_RESULT_VALUE);
         results.computeIfPresent(result, (key, value) -> value + RESULT_INCREMENT_NUM);
     }
