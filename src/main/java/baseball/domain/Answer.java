@@ -44,18 +44,4 @@ class Answer {
         results.putIfAbsent(result, INITIAL_RESULT_VALUE);
         results.computeIfPresent(result, (key, value) -> value + RESULT_INCREMENT_NUM);
     }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Answer answer = (Answer) o;
-        return numbers.equals(answer.numbers);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(numbers);
-    }
 }
